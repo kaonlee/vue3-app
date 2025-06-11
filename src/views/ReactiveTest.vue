@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Counter} from '@/models/Counter'
+import { Counter } from '@/models/Counter'
 import { reactive, ref, computed } from 'vue'
 
 const counter = reactive(new Counter())
@@ -33,6 +33,7 @@ function counterDecrement2() {
   </header>
     <div class="wrapper">
       <p>Counter: {{ counter.value }}</p>
+      <p>Counter active: {{ counter.isActive }}</p>
       <button @click="counter.increment()">Increment</button>
       <button @click="counter.decrement()">Decrement</button>
       <button @click="counterIncrement">Increment2</button>
@@ -40,6 +41,7 @@ function counterDecrement2() {
     </div>
     <div class="wrapper">
       <p>Counter: {{ counter2?.value }}</p>
+      <p>Counter active: {{ counter2?.isActive }}</p>
       <p>Counter Computed: {{ counter2ValueComputed }}</p>
       <button @click="createCounter">Create Counter</button>
       <button @click="counter2?.increment()">Increment</button>

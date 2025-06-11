@@ -1,14 +1,17 @@
 export class Counter {
-    constructor(initialValue = 0) {
-        this.value = initialValue;
+    constructor() {
+        this.value = 0;
+        this.isActive = false;
     }
 
     increment() {
         this.value += 1;
+        this.isActive = true
     }
 
     decrement() {
         this.value -= 1;
+        this.isActive = this.value > 0;
     }
 
     reset() {
