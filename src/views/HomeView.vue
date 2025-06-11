@@ -5,7 +5,7 @@
     <header>
     <div class="wrapper">
       <nav>
-        <RouterLink :to="{ name: 'game-mini-city'}">Mini Animal City v.0.1</RouterLink>
+        <RouterLink :to="{ name: 'reactive-test'}">Counter</RouterLink>
       </nav>
     </div>
   </header>

@@ -11,11 +11,11 @@ const router = createRouter({
     },
     {
       path: '/1',
-      name: 'game-mini-city',
+      name: 'reactive-test',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/MiniCityView.vue'),
+      component: () => import('../views/ReactiveTest.vue'),
     },
   ],
 })
