@@ -5,7 +5,7 @@
     <header>
     <div class="wrapper">
       <nav>
-        <RouterLink :to="{ name: 'reactive-test'}">Counter</RouterLink>
+        <RouterLink :to="{ name: 'reactive-test'}">Test of Vue reactive.</RouterLink>
       </nav>
     </div>
   </header>
