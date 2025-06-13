@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Counter } from '@/models/Counter'
-import { reactive, ref, computed } from 'vue'
+import { reactive } from 'vue'
 
 const counter = reactive(new Counter())
 function counterIncrement() {
@@ -9,46 +9,29 @@ function counterIncrement() {
 function counterDecrement() {
   counter.decrement()
 }
-
-
-const counter2 = ref(null)
-
-function createCounter() {
-  counter2.value = new Counter()
-}
-const counter2ValueComputed = computed(() => counter2.value? counter2.value.value : 0)
-function counterIncrement2() {
-  counter2.value?.increment()
-}
-function counterDecrement2() {
-  counter2.value?.decrement()
-}
-
 </script>
 
 <template>
   <main>
     <header>
-    <h2>Reactive Test</h2>
-  </header>
+      <h2>Reactive Test</h2>
+    </header>
     <div class="wrapper">
-      <p>Counter: {{ counter.value }}</p>
-      <p>Counter active: {{ counter.isActive }}</p>
+      <h2>Counter: {{ counter.value }}</h2>
       <button @click="counter.increment()">Increment</button>
+      <span>點擊之後，會發現下面的 decrement 有影響到元件內部，只是沒有辦法被觀察到</span>
       <button @click="counter.decrement()">Decrement</button>
-      <button @click="counterIncrement">Increment2</button>
-      <button @click="counterDecrement">Decrement2</button>
-    </div>
-    <div class="wrapper">
-      <p>Counter: {{ counter2?.value }}</p>
-      <p>Counter active: {{ counter2?.isActive }}</p>
-      <p>Counter Computed: {{ counter2ValueComputed }}</p>
-      <button @click="createCounter">Create Counter</button>
-      <button @click="counter2?.increment()">Increment</button>
-      <button @click="counter2?.decrement()">Decrement</button>
-      <button @click="counterIncrement2">Increment</button>
-      <button @click="counterDecrement2">Decrement</button>
+      <span
+        >這顆 decrement 無法影響，因為 decrement.bind(this) 綁定後斷開連結，觸發不是從 vue
+        發出</span
+      >
+
+      <br/>
+
+      <h2>Active: {{ counter.isActive }}</h2>
+      <button @click="counter.setActive()">setActive</button>
+      <span>這顆 test 無法影響，因為 test.bind(this) 綁定後斷開連結，觸發不是從 vue 發出</span>
+      <button @click="counter.test()">setActive but bind this</button>
     </div>
   </main>
 </template>
-
