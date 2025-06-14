@@ -1,14 +1,10 @@
 <script setup lang="ts">
+
 import { Counter } from '@/models/Counter'
 import { reactive } from 'vue'
 
 const counter = reactive(new Counter())
-function counterIncrement() {
-  counter.increment()
-}
-function counterDecrement() {
-  counter.decrement()
-}
+
 </script>
 
 <template>
